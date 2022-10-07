@@ -1,0 +1,256 @@
+
+# =========================
+#       Generate
+# =========================
+// https://www.jetbrains.com/help/rider/Generating_Type_Members.html
+//  https://www.jetbrains.com/help/rider/Code_Generation__Type_Constructors.html
+
+
+
+class
+    // Generate Menu     [Alt + Insert] -> Constuctor, Properties, Members, Equality/Relational Members/Comparer, Dispose Pattern
+    Constructor // Menu: (Access Rights, Check Null, Optional)
+        ctor    // constructor (no params)
+        ctorp   //             (params for all properties)
+        ctorf   //             (params for all fields)
+        ctorfp  //             (initializes all fields and auto-properties)
+    Properties
+
+
+
+
+# ===================================================================================================
+#        Templates
+# ===================================================================================================
+// ALL Predefined:      https://www.jetbrains.com/help/rider/Reference__Templates_Explorer__Live_Templates.html
+//             C#:      https://www.jetbrains.com/help/rider/Reference__Templates_Explorer__Live_Templates_CSHARP.html
+//        PostFix:      https://www.jetbrains.com/help/rider/Postfix_Templates.html
+//           Live:      https://www.jetbrains.com/help/rider/Using_Live_Templates.html
+
+File Templates 
+Live Templates      // 
+Postfix Templates   // .<template>      Transform whatever you've already typed
+Source Templates    //                  Easily created with annotating [SourceTemplate] anywhere in code ---- defined in Jetbrains.Annotations
+
+// ===================================================================
+//  Postfix Templates
+// ===================================================================
+
+.par      // (expr)
+
+// --------- Conditionals
+.else     // if (!expr)
+.if       // if (expr)
+.not      // !expr
+.notnull  // if (expr != null)
+.null     // if (expr == null)
+
+// --------- Methods
+.arg      // Method(expr)
+.return   // return expr;
+.yield    // yield return expr;
+.new      // new SomeType()
+
+// --------- Variables
+.field    // _field = expr;
+.prop     // Property = expr;
+.to       // lvalue = expr;
+.var      // var x = expr;
+//  -- Cast
+.cast     // ((SomeType) expr)
+.typeof   // typeof(TExpr)
+.using    // using (expr)
+//  -- Parse
+.parse    // int.Parse(expr)
+.tryparse // int.TryParse(expr, out value)
+
+// --------- Structures
+.for      // for (var i = 0; i < xs.Length; i++)
+.foreach  // foreach (var x in expr)
+.switch   // switch (expr)
+.while    // while (expr)
+.forr     // for (var i = xs.Length-1; i >= 0; i--)
+
+// --------- Errors
+.throw    // throw expr;
+
+// --------- Advanced 
+.await    // await expr
+.lock     // lock (expr)
+.sel      // |selected + expression|
+
+
+// ===================================================================
+//  Live Templates
+// ===================================================================
+//      ITERATION
+// ===================================================================
+// MNEMONIC:   IT       (ITERATE)
+[cs]
+// ----------- FOREACH -------------------------
+//             foreach
+foreach ($TYPE$ $VARIABLE$ in $COLLECTION$)
+{
+  $SELECTION$$END$
+}
+// ----------- FOR ----------------------------
+//             for
+for (int $INDEX$ = 0; $INDEX$ < $UPPER$; $INDEX$++)
+{
+  $SELECTION$$END$
+}
+// ----------- LIST -----------------------------
+//             itli        
+// - iterate list
+// Iterate a IList<T>
+for (int $INDEX$ = 0; $INDEX$ < $LIST$.Count; $INDEX$++)
+{
+  $TYPE$ $ITEM$ = $LIST$[$INDEX$];
+  $END$
+}
+// ----------- ARRAY -----------------------------
+//             itar
+for (int $INDEX$ = 0; $INDEX$ < $ARRAY$.Length; $INDEX$++)
+{
+  $TYPE$ $VAR$ = $ARRAY$[$INDEX$];
+  $END$
+}
+// ----------- ARRAY - REVERSE ----------------------
+//             ritar
+for (int $INDEX$ = $ARRAY$.Length - 1; $INDEX$ >= 0; $INDEX$--)
+{
+  $TYPE$ $VAR$ = $ARRAY$[$INDEX$];
+  $END$
+}
+// ----------- for - REVERSE ----------------------
+//             forr
+for (int $index$ = $max$ - 1; $index$ >= 0 ; $index$--)
+      {
+       $END$
+      }
+// ===================================================================
+//      LOOPS
+// ===================================================================
+while // while
+do    // do...while
+
+// ===================================================================
+//      DECLARE & DEFINE
+// ===================================================================
+psvm  //  Main Method - void
+public static void Main( string[] args ) { $END$ }
+sim   //  Main Method - int
+static int Main(string[] args) { $END$ return 0; }
+svm   //  Main Method - int
+static void Main(string[] args) { $END$ }
+
+// ----- STRUCTURES -----
+class
+struct
+interface
+enum
+
+// ----- CONDITIONAL -----
+switch
+if
+
+// ----- VARIABLES -----
+pci   // public const int
+pcs   // public const string
+  
+psr   // public static readonly
+
+prop  // property { get; set; }
+propg // property { get; private set; }
+
+ear   // empty array
+$TYPE$[] $NAME$ = new $TYPE$[] {};
+
+// ----- OVERLOADS -----
+indexer   // overload: []
+iterator  // GetEnumerator()
+
+
+// ===================================================================
+//      OUTPUT & CONSOLE
+// ===================================================================
+
+// ----- PRINT -----
+  cw
+    System.Console.WriteLine($END$);
+  out     // Print string
+    System.Console.Out.WriteLine("$END$");
+  outv    // Variable
+    System.Console.Out.WriteLine("$EXPR$ = {0}", $EXPR$);
+
+// ===================================================================
+//      CASTING
+//      + USING
+// ===================================================================
+//
+sfc   // safely cast variable
+  $VARTYPE$ $VAR$ = $VAR1$ as $TYPE$;
+  if ($VAR$ != null)
+  {
+    $END$
+  }
+
+using   // using statment
+  using($resource){ $SELECTION$$END$ }
+
+// ===================================================================
+//      ERRORS & ASSERT
+// ===================================================================
+
+// ----- ASSERT -----
+asrt    // Make an assertion
+  Debug.Assert($END$)
+asrtn   // assert not null   
+  Debug.Assert($EXPR$ != null, "$MESSAGE$");
+  
+// ----- TRY -----
+tryf  // try - finally
+  try {$SELECTION$} finally {$END$}
+try   // try - catch
+  try {$SELECTION$} catch ($EXCEPTION$ $EX_NAME$){ /* Console.WriteLine(...); throw; */ }
+  
+// ----- EXCEPTIONS -----
+thr   // throw
+  throw new
+  
+Exception 
+  {... A lot of stuff ...}
+
+checked // Block - raises overflow exceptions
+
+// ===================================================================
+//      OTHER
+// ===================================================================
+
+
+unsafe // unsafe statement
+unchecked // unchecked statement
+Attribute
+lock
+attachedProperty
+dependencyProperty
+  
+test
+  [Test] public void $METHOD() {$END$}
+
+// #if
+#if $expression$
+     $SELECTION$$END$
+  #endif
+  
+// #region $name$
+     $SELECTION$$END$
+  #endregion
+  
+#region
+
+
+// mbox MessageBox.Show  --- (Windows)
+
+[/cs]
+

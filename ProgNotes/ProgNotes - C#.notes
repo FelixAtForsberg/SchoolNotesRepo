@@ -1,0 +1,409 @@
+// WORDS
+// =====
+// AFFIX  - BEFORE OR AFTER             (or infix/circumfix/transfix)             https://en.wikipedia.org/wiki/Affix 
+// PREFIX - BEFORE                      (prefix)
+// SUFFIX - AFTER                       (postfix)
+
+// Implicity Typed = using var 
+
+
+// Casting
+// =======
+// Implicit Casting -> (silently converts type) float = int
+// Explicit Casting -> (explicity expressed) float = (float)int
+// Via Method
+// Cast Up -> BaseClass
+// Cast Down -> Inherited
+
+// 'as' - keyword 
+// if (animal is Dog dog) {...} // check is dog AND assign Dog dog  
+
+
+// Todo:
+// Violation of the Open-Closed Principle
+// Method Virtualization
+
+A process has 5 different areas of memory allocated
+
+1. Code - text segment
+2. Initialized data  – .data segment
+3. Uninitialized data – .bss segment
+4. Heap
+5. Stack
+
++--------------------------+
+|                          |
+| command line             |
+| arguments                |
+| (argc and argv[ ])       |
+|                          |
++--------------------------+
+| Stack                    |
+| (grows-downwards)        |
+|                          |
+|                          |
+|                          |
+| F R E E                  |
+| S P A C E                |
+|                          |
+|                          |
+|                          |
+|                          |
+| (grows upwards) Heap     |
++--------------------------+
+|                          |
+| Initialized data         |
+| segment                  |
+|                          |
++--------------------------+
+|                          |
+| Initialized to           |
+| Zero (BSS)               |
+|                          |
++--------------------------+
+|                          |
+| Program Code             |
+|                          |
++--------------------------+
+
+// ================
+//      Syntax
+// ================
+
+// Members - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/members
+//           ^ Fields Constants Properties Methods Events Operators Indexers Constructors Finalizers Nested Types
+
+// Fields  - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/fields
+
+
+// --- Statments ---      actions that a program takes are expressed in statements
+
+int counter;    // Declare, Declaration (statement)
+int counter = 1 // Declare, Declaration statement with initializer
+counter = 1;    // Assignment  (statement)
+
+// ---------- Members ----------
+// [class, struct]
+// member = Fields  Constants  Properties  Methods  
+//          Events  Operators  Indexers    Finalizers  Nested Types 
+
+field       // variable, class scope
+constant    // variable, class scope, read-only   set at compile-time only
+property    // method,   accessed as if they were "fields"
+            //           provide "protection" for a class field 
+Method          // method,   class function, describe action + optinal return value
+Event           // delegate
+Operator        // method,   public static method, operator overloading
+Indexer         //           array-like accessor
+Constructor     // method,   called on creating
+Finalizer       // method,   destructor (used rarely in c#)
+Nested Types    // type,     types declare within another type
+
+// ===============
+//   Collections 
+// ===============
+
+Array is a REFERENCE TYPE // is passed by reference?
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/reference-types
+
+List
+
+// ==============================
+// Built-in  Types  (primitves) 
+// ==============================
+// Value Types:  Numberx
+bool            //  1b    true false
+
+
+byte            // 8b          0 .. 255       
+sbyte           //          -128 .. 127     
+
+short           // 16b    32,768 .. 32,767
+ushort          //             0 .. 65,535
+
+int             // 32b    -2,147,483,648 .. 2,147,483,647 
+uint            //                       0 .. 4,294,967,295
+
+long            // 64b    -9,223,372,036,854,775,808 .. 9,223,372,036,854,775,807
+ulong           //                                   0 .. 18,446,744,073,709,551,615
+
+
+
+nint            // (platform) int32  or int64 
+nuint           // (platform) uint32 or uint64
+
+// Value Types: Decimal
+//                 Size        Precision
+float           // 4  bytes    ~6-9   digits
+double          // 8  bytes    ~15-17 digits
+decimal         // 16 bytes    ~28-29 digits
+
+// Value Types: Text
+char            // 16b    default: \0   (aka U+0000)     U+0000 .. U+FFFF
+// = 'j'        //  character literal
+// = '\u006A'   //  unicode escape sequence    
+// = '\x006A'   //  hexademical escape sequence    
+// = (char)106 
+
+
+// ===================
+//       Structures
+// ===================
+
+// ----- class -----
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class
+class
+
+// ---- class -- getters and setters ----
+
+// questions:
+// if get can still be set in constructor what is {init;}
+// difference to readonly keyword?
+
+// -- getters
+// under the hood generates methods 
+// <access-modifier> <type> field { [return] }
+get { <method body> } -> get_fieldName() // internally generates methods 
+
+// read-only - only has setter ({ get; })
+//             read-only CAN STILL be SET in constructor
+
+// -- setters
+set { <method body> } -> set_fieldName(T field)
+
+// auto property
+{ get; set; } // no body
+
+// if getters and setters are internally methods (or compile to methods) does c# have extension properties
+
+// ----- struct -----
+// inherits: class -> System.ValueType -> struct
+// modifiers: new, public, protected, internal, private
+//            partial, 
+// never abstract, implicitly sealed
+struct
+ref struct
+
+record struct 
+// Short Syntax for a struct that has a constructor with fields of same name
+// if given 'readonly' modifier; members get defined as {get; init;}
+readonly record struct ColorPair(ConsoleColor? Foreground, ConsoleColor? Background);
+
+
+
+// Parameterless struct constructors - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-10.0/parameterless-struct-constructors
+// Structs (draft specification) - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/structs
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct
+
+
+
+
+// How do I make a struct immutable? - https://stackoverflow.com/questions/36780200/how-do-i-make-a-struct-immutable
+
+    class             vs             struct
+// reference type                  value type
+// inheritance                     no inheritance
+// reference can be null           cannot be null reference
+// can have destructor             no destructor
+// decl can initialize members     decl cannot initialize members
+
+// When To Use Struct  https://www.c-sharpcorner.com/article/what-is-structure-and-when-to-use-in-c-sharp/
+// * small collections of value-types 
+// * all member fields are of value type
+// gets copied when passed
+
+// ---- interface ----
+interface
+
+// ---- enum ----
+enum
+
+// ---- array ----
+//https://learn.microsoft.com/en-us/dotnet/api/system.array.createinstance?view=net-7.0
+array
+
+
+// ============================
+//     Keywords - Modifiers
+// ============================
+// C# Keywords (ALL) - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
+// CheatSheet        - http://www.diranieh.com/NETCSharp/Modifiers.htm
+
+// ------ Keywords - Access Modifiers ------
+public          
+internal        // public inside the project 
+protected       // class & derived    
+private         // default, class ONLY
+// ------ Keywords - Method Parameter Modifiers ------
+this (for extension methods, in static method, prefix first argument type)
+in
+out
+params
+ref
+// ------ Keywords - Namespace Parameter Modifiers ------
+namespace
+using
+extern alias
+// ------ Keywords - Modifiers ------
+abstract        // "base class" - no instantion, may have abstract members
+// must provide implementation for all interface members
+// children must implement all abstract methods/properties
+// CANNOT use: static, virtual override in abstract declaration
+async
+const // not variables
+event
+extern // implemented externally
+in
+new
+out
+override
+readonly
+sealed // prevents inheritance
+static 
+unsafe // involves pointers
+virtual
+volatile // allow multithreaded access
+
+// https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract
+
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record
+record // A record or a record class declares a reference type
+// -- Record Example ----------------------------------
+[cs]
+public record Person(string FirstName, string LastName);
+
+public static void Main()
+{
+    Person person = new("Nancy", "Davolio");
+    Console.WriteLine(person);
+    // output: Person { FirstName = Nancy, LastName = Davolio }
+}
+[cs]
+// ----------------------------------------------------
+
+// ========
+// Loops 
+// ========
+
+break // end current iteration, goto end
+next  // end current iteration, goto start (next iteration)
+
+
+// --------------------
+// Text, Strings, Chars
+// --------------------
+
+"a" // Double Quotes = String
+'a' // Single Quotes = Char
+
+
+// "Rules"
+// https://stackoverflow.com/questions/24551/initialize-class-fields-in-constructor-or-at-declaration
+Initiliaze in Class Fields in Constructor or Declaration?
+
+
+
+
+
+
+
+// =============
+// Contexts & Pre-Processor
+// =============
+
+// Preprocessor Directives  https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives
+// nullable                 https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-contexts
+
+#nullable [enable|disable|annotations|warnings]
+//             | Dereference | Assignment |  Reference       Suffix      Operator 
+//             | Warning     | Warning    |  Types           ?           !
+// ------------+-------------+------------+----------------------------------------
+// disable:    | NO          | NO         |  ALL NULLABLE                   
+// enable:     | YES         | YES        |  NON-UNLESS ?                    
+// warnings:   | YES         | N/A        |  ALL NOT NULL AT METHOD BRACE     
+// annotations:| NO          | NO         |                                   
+
+
+
+// Conditional Compilation
+#define
+#undef
+
+#if cond
+#elif cond
+#else
+#endif
+
+// editor - collapsible
+#region
+#endregion
+
+// Compiler Errors
+#error                       // Generate
+#warning                     // Generate
+#line hidden|filename        // Change Line-Number printed with messages
+
+#pragma // enable disable warnings
+
+
+// ==================
+// Extension Method
+// ==================
+// https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/how-to-implement-and-call-a-custom-extension-method
+
+// To define and call the extension method
+1. Define a static class to contain the extension method.
+2. The class must be visible to client code. 
+3. Implement the extension method as a static method with at least the same visibility as the containing class.
+4. first parameter of the method specifies the type that the method operates on; it must be preceded with the this modifier.
+5. In calling code, add a using directive to specify the namespace that contains the extension method class.
+6. Call the methods as if they were instance methods on the type.
+7. Note that the first parameter is not specified by calling code because it represents the type on which the operator is being applied, and the compiler already knows the type of your object. You only have to provide arguments for parameters 2 through n.
+
+
+// ==================
+// Runtime Hacks
+// ==================
+
+// Reflection
+// https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection
+// https://learn.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/reflection
+// https://learn.microsoft.com/en-us/dotnet/api/system.reflection.emit?view=net-6.0
+
+typeof()
+
+// https://learn.microsoft.com/en-us/dotnet/api/system.array?redirectedfrom=MSDN&view=net-6.0
+
+// Managed vs. unmanaged types
+// https://stackoverflow.com/questions/54790276/managed-vs-unmanaged-types
+
+// c# Array Source Code 
+// https://referencesource.microsoft.com/#mscorlib/system/array.cs
+// https://github.com/dotnet/coreclr/blob/bc146608854d1db9cdbcc0b08029a87754e12b49/src/classlibnative/bcltype/arraynative.cpp#L226
+
+// Extension Property Workarounds
+// https://stackoverflow.com/questions/619033/does-c-sharp-have-extension-properties
+
+// ExpandoObject Class
+//  Represents an object whose members can be dynamically added and removed at run time
+//  https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.expandoobject?view=net-7.0
+
+// Unsafe code -- Swap pointers to type
+// https://stackoverflow.com/questions/1862561/replacing-a-net-type-at-runtime
+
+// DynamicObject Class
+// Provides a base class for specifying dynamic behavior at run time
+// https://learn.microsoft.com/en-us/dotnet/api/system.dynamic.dynamicobject?redirectedfrom=MSDN&view=net-6.0
+
+// how do I overload []
+// https://stackoverflow.com/questions/424669/how-do-i-overload-the-operator-in-c-sharp
+public int this[int key]
+{
+    get => GetValue(key);
+    set => SetValue(key, value);
+}
+
+
+// Unsafe code, pointer types, and function pointers
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/unsafe-code

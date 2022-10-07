@@ -1,0 +1,136 @@
+
+TERMINOLOGY:
+ORIGIN   // Original Repo Git Cloned From
+         // "git config --get remote.origin.url", "git remote show origin", "git remote -v"
+UPSTREAM //
+MASTER   // Default Branch of REPO
+HEAD     // Latest Commit, branch with your changes
+
+REBASE  // Moving commits to a new base commit      compose of entirely new commits
+BASE COMMIT?
+
+
+DAG  // GIT History         ( Directed Acyclic Graph )
+
+STAGE // stage a commit, prepare it "finely" for committing
+
+// https://gitready.com/beginner/2009/03/09/remote-tracking-branches.html
+// https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches
+
+// https://www.atlassian.com/git/tutorials/using-branches/git-checkout
+// https://git-scm.com/docs/git-pull
+https://git-scm.com/docs/git-merge
+BRANCHES:
+    TWO TYPES:
+        Remote-Tracking      REMOTE-TRACKING branches are references to the state of remote branches
+        Local               
+
+git checkout <in_progress>  // switch branch
+git checkout -b <new-branch> // create branch + switch
+git checkout -b <new-branch> <existing-branch>
+
+git clone -b <branch> <remote_repo>
+
+git branch -d old-branch    // delete
+
+
+git pull => git fetch, depending on result => git rebase || git merge
+git pull 
+git pull --allow-unrelated-histories
+        [--rebase[=<false|true|merge|interactive>]    
+        [--allow-unrelated-histories]
+        [--no-rebase]     
+
+git merge 
+git merge [-e --edit --no-edit] 
+          [--overwrite-ignore]
+          [--continue]
+
+git stash // Use git stash when you want to record the current state of the working directory and the index, but want to go back to a clean working directory. 
+git stash list
+git stash show
+git stash apply
+
+FILE:
+git ls-files
+
+git add <file>
+git rm <file>
+git commit -m <message>
+
+// posh git? Same as git? https://stackoverflow.com/questions/16722713/what-do-the-colors-in-the-github-for-windows-shell-mean
+// Cyan        remote
+// Green       remote ahead            // is ahead of its remote 
+// Red         remote behind           // is behind of its remote 
+// Yellow      remote ahead + behind   // is both ahead and behind its remote 
+
+// git branch -a https://stackoverflow.com/questions/68743483/what-do-the-colors-mean-in-the-output-of-git-branch-a
+CLI COLORS:
+Green   Current
+Red     Remote-Tracking // remote 
+
+CLI SYMBOLS:
++   added
+~   modified
+-   removed
+!   conflicted
+
+
+LIST BRANCHES:
+git branch          // Local Branches
+git branch -r       // Remote Branches
+git branch -a       // All
+
+git status
+
+https://www.atlassian.com/git/tutorials/syncing/git-pull
+
+
+
+git pull <remote>
+This is the same as git fetch ＜remote＞ followed by git merge origin/＜current-branch＞.
+
+git pull --no-commit <remote>
+Similar to the default invocation, fetches the remote content but does not create a new merge commit.
+
+
+
+
+// https://stackoverflow.com/questions/1800783/how-to-compare-a-local-git-branch-with-its-remote-branch
+git diff
+
+
+// You can git branch -a to list all branches (local and remote)
+
+
+// ====================
+// Git - Printing 
+// ====================
+https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
+
+git log
+
+LIST BRANCHES:
+git branch          // Local Branches
+git branch -r       // Remote Branches
+git branch -a       // All
+
+// --------------
+//  Use Cases
+// --------------
+
+// https://stackoverflow.com/questions/2763006/make-the-current-git-branch-a-master-branch
+// Make the current Git branch a master branch
+
+
+
+
+
+
+// ==================================
+// GitHub
+// ==================================
+// https://cli.github.com/manual/gh_pr_create
+// gh pr create
+// gh pr create --base  <> --head <> 
+// gh pr create --title ""  --base 

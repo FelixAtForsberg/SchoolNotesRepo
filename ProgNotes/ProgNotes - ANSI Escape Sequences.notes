@@ -1,0 +1,50 @@
+https://en.wikipedia.org/wiki/ANSI_escape_code
+
+https://learn.microsoft.com/en-us/cpp/c-language/escape-sequences?view=msvc-170
+
+https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
+
+
+
+┌────┬──────┬──────┬───────────┬────────────────────────────────────────────────────────────────────────────────────────────
+│ ^  │ C0   │ Abbr │ Name      │ Effect
+├────┼──────┼──────┼───────────┼────────────────────────────────────────────────────────────────────────────────────────────
+│ ^G │ 7    │ BEL  │ Bell      │ Makes a noise.
+│ ^H │ 8    │ BS   │ Backspace │ Moves cursor left  (may "backwards wrap" if cursor is at start of line)
+│ ^I │ 9    │ HT   │ Tab       │ Moves cursor right (next multiple of 8)
+│ ^J │ 0x0A │ LF   │ Line Feed │ Moves to next line, scrolls the display up if at bottom of the screen. Usually does not move horizontally, though programs should not rely on this.
+│ ^L │ 0x0C │ FF   │ Form Feed │ Move a printer to top of next page. Usually does not move horizontally, though programs should not rely on this. Effect on video terminals varies.
+│ ^M │ 0x0D │ CR   │ Carriage  │ Return Moves the cursor to column zero.
+│ ^[ │ 0x1B │ ESC  │ Escape    │ Starts all the escape sequences 
+└────┴──────┴──────┴───────────┴────────────────────────────────────────────────────────────────────────────────────────────
+
+
+CSI n A         CUU     Cursor Up
+CSI n B         CUD     Cursor Down
+CSI n C         CUF     Cursor Forward
+CSI n D         CUB     Cursor Back
+CSI n E         CNL     Cursor Next Line
+CSI n F         CPL     Cursor Previous Line
+CSI n G         CHA     Cursor Horizontal Absolute
+CSI n ; m H     CUP     Cursor Position
+CSI n J         ED      Erase in Display
+CSI n K         EL      Erase in Line
+CSI n S         SU      Scroll Up
+CSI n T         SD      Scroll Down
+CSI n ; m f     HVP     Horizontal Vertical Position
+CSI n m         SGR     Select Graphic Rendition
+CSI 5i                  AUX Port On
+CSI 4i                  AUX Port Off
+CSI 6n          DSR     Device Status Report
+
+
+// Popular Private Sequences
+Code            Abbr            Name
+CSI s           SCP, SCOSC      Save Current Cursor Position
+CSI u           RCP, SCORC      Restore Saved Cursor Position
+CSI ? 25 h      DECTCEM     
+CSI ? 25 l      DECTCEM     
+CSI ? 1049 h        
+CSI ? 1049 l        
+CSI ? 2004 h        
+CSI ? 2004 l        

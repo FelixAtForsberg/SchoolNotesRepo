@@ -1,0 +1,153 @@
+// https://stackoverflow.com/questions/22842691/what-is-the-meaning-of-the-dist-directory-in-open-source-projects
+
+
+// ===================================================================================
+//                          WORDS
+// ===================================================================================
+
+// INDEX     list of data
+// SCHEMA    a diagrammatic presentation broadly
+
+// AFFIX     "Before" &/or "After", or Positional Categories
+// -------
+// AFFIXES
+// ---------------
+//        -  Broad: "POSITIONAL CATEGORY" 
+//        - Schema:  
+PREFIX             [PREFIX]<Stem>
+SUFFIX/POSTFIX             <Stem>[SUFFIX|POSTFIX]
+
+CIRCUMFIX       [CIRCUMFIX]<Stem>[CIRCUMFIX]
+INFIX           <St>-[INFIX]-<em>
+TRANSFIX        <St>[TRANSFIX]<e>[TRANSFIX]<m>
+
+// -------
+//     Verbs
+// -----------------------------------------
+// Least Effort <-      -     -      -     -      -     -      -     -      -     -      -     -> Most Effort
+read, reference, access, get, retrieve, dispatch, fetch, resolve, fulfill, gather, process, respond, handle
+
+// -------
+//     Operators
+// -----------------------------------------
+
+// OPERAND
+//         on which an operation is to be done
+
+// LEFT  OPERAND   (preceding) (prefix)
+// RIGHT OPERAND   (following) (postfix)
+
+// Unary                    
+//        acts upon SINGLE OPERAND    (usually? to produce a new value)
+//            <OPERATOR>_operand_    ||    _operand_<OPERATOR> 
+//            -number (unary minus),  sizeof(),  ++ (increment),  -- (decrement),  & (addressof)  
+
+// Prefix
+//        precedes operand
+//            <PREFIX_OPERATOR><operand> 
+//            ++a (unary prefix increment)
+
+// Postfix
+//        follows operand
+
+// -------
+//     Logical
+// -----------------------------------------
+// Related: Truth Tables
+
+// &&     AND
+// ||     OR
+// !      NOT
+
+
+
+
+// -------
+//    Naming Functionality
+// -----------------------------------------
+"editor.foldingStrategy": "indentation"
+
+
+// ===================================================================================
+//                      UI Components
+// ===================================================================================
+browser       gallery        lister   viewer      book
+caption       description    info
+collapse      collapsible
+container     wrapper        panel    block
+disabled      inactive
+divider       separator
+finder        scout          sense   
+font          typeface
+group         category
+header        heading        title    name        category    row
+hidden        invisible
+inner         inward
+meta         
+modal         dialog         popup    menu        window      form  interface
+navbar        navigationbar  toolbar
+outer         outward
+preferences   settings       options
+responsive    resizable      scale    scalable
+sequential    sorted
+system        handler        manager  controller
+table         grid
+widget        control        element  component   renderable  ui    part
+
+// ===================================================================================
+//                 Data Structures
+// ===================================================================================
+
+
+// Properties (Data Structures)
+//------------------------------------------------------------
+length,  quantity,  index,  count
+
+// Collections
+//------------------------------------------------------------
+list,  index,  tally,  array,  vector,  collection
+
+pair, tuple, key-value
+
+// ===================================================================================
+//                File and Folder Conventions
+// ===================================================================================
+
+// Repository
+//------------------------------------------------------------------------------------
+README.md       // README.txt
+CONTRIBUTING.md       
+LICENSE.md      // LICENSE LICENSE.txt 
+
+
+.gitignore      // Files for git to ignore
+
+
+// Folder Structure
+src/               // "source"
+
+
+dist/               // "distributable"
+public/
+build/
+
+assets/             // static assets, images, fonts etc
+
+lib/                // external dependencies
+node_modules/       // npm -      libraries and dependencies for JS packages
+vendor/             // Composer - libraries and dependencies for PHP packages 
+include/            // c++ headers
+
+test/
+bin/                // "binary", files that get added to your PATH when installed.
+
+man/
+doc/
+docs/
+contrib/
+
+
+
+
+
+
