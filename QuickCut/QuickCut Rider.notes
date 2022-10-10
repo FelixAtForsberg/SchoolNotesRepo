@@ -2,7 +2,7 @@
 # =========================
 #       Generate
 # =========================
-// https://www.jetbrains.com/help/rider/Generating_Type_Members.html
+//  https://www.jetbrains.com/help/rider/Generating_Type_Members.html
 //  https://www.jetbrains.com/help/rider/Code_Generation__Type_Constructors.html
 
 
@@ -24,12 +24,15 @@ class
 # ===================================================================================================
 // ALL Predefined:      https://www.jetbrains.com/help/rider/Reference__Templates_Explorer__Live_Templates.html
 //             C#:      https://www.jetbrains.com/help/rider/Reference__Templates_Explorer__Live_Templates_CSHARP.html
+// .NET Templates:      https://www.jetbrains.com/help/rider/Templates__Index.html
 //        PostFix:      https://www.jetbrains.com/help/rider/Postfix_Templates.html
 //           Live:      https://www.jetbrains.com/help/rider/Using_Live_Templates.html
 
 File Templates 
 Live Templates      // 
-Postfix Templates   // .<template>      Transform whatever you've already typed
+  Simple
+  Surround
+  Postfix Templates   // .<template>      Transform whatever you've already typed
 Source Templates    //                  Easily created with annotating [SourceTemplate] anywhere in code ---- defined in Jetbrains.Annotations
 
 // ===================================================================

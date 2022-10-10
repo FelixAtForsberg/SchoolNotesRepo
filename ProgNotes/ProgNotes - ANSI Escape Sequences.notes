@@ -1,9 +1,23 @@
-https://en.wikipedia.org/wiki/ANSI_escape_code
+// https://en.wikipedia.org/wiki/ANSI_escape_code
+// https://learn.microsoft.com/en-us/cpp/c-language/escape-sequences?view=msvc-170
+// https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
 
-https://learn.microsoft.com/en-us/cpp/c-language/escape-sequences?view=msvc-170
+// --------- Words ---------
+// CSI   Control Sequence Introducer    0x9B, ESC 
+//       Starts most useful sequences   
 
-https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
+// --------- Usage ---------
 
+// C#
+// https://www.tutorialspoint.com/Ways-to-print-escape-characters-in-Chash
+
+var chars = new[]
+{
+    'j',        // character literal
+    '\u006A',   // Unicode escape sequence        \u
+    '\x006A',   // hexadecimal escape sequence    \x
+    (char)106,
+};
 
 
 ┌────┬──────┬──────┬───────────┬────────────────────────────────────────────────────────────────────────────────────────────

@@ -6,6 +6,8 @@
 
 // Implicity Typed = using var 
 
+// Argument:    Passed to the function [call]
+// Parameter: Used within the function [definition]
 
 // Casting
 // =======
@@ -23,6 +25,9 @@
 // Violation of the Open-Closed Principle
 // Method Virtualization
 
+// Lots on tuples: named, un-named
+// https://livebook.manning.com/book/c-sharp-in-depth-fourth-edition/chapter-9/v-8/18
+
 A process has 5 different areas of memory allocated
 
 1. Code - text segment
@@ -38,8 +43,8 @@ A process has 5 different areas of memory allocated
 | (argc and argv[ ])       |
 |                          |
 +--------------------------+
-| Stack                    |
-| (grows-downwards)        |
+| Stack (grows-downwards)  |
+|                          |
 |                          |
 |                          |
 |                          |
@@ -108,12 +113,12 @@ Array is a REFERENCE TYPE // is passed by reference?
 
 List
 
-// ==============================
-// Built-in  Types  (primitves) 
-// ==============================
-// Value Types:  Numberx
-bool            //  1b    true false
 
+// ==============================
+// Value Types - Numbers (Integer)
+// ==============================
+// -------- Value Types:  Number --------
+bool            // 1b       true false
 
 byte            // 8b          0 .. 255       
 sbyte           //          -128 .. 127     
@@ -128,24 +133,144 @@ long            // 64b    -9,223,372,036,854,775,808 .. 9,223,372,036,854,775,80
 ulong           //                                   0 .. 18,446,744,073,709,551,615
 
 
-
 nint            // (platform) int32  or int64 
 nuint           // (platform) uint32 or uint64
 
-// Value Types: Decimal
+// ==============================
+// Value Types - Numbers (Decimal) 
+// ==============================
 //                 Size        Precision
 float           // 4  bytes    ~6-9   digits
 double          // 8  bytes    ~15-17 digits
 decimal         // 16 bytes    ~28-29 digits
 
-// Value Types: Text
+// ==============================
+// Value Types - Text  
+// ==============================
 char            // 16b    default: \0   (aka U+0000)     U+0000 .. U+FFFF
 // = 'j'        //  character literal
 // = '\u006A'   //  unicode escape sequence    
 // = '\x006A'   //  hexademical escape sequence    
 // = (char)106 
 
+string
 
+
+// ==============================
+// Types - Exceptions  
+// ==============================
+// https://www.tutorialsteacher.com/csharp/csharp-exception
+// https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/using-standard-exception-types
+
+
+// Exception Do-s and Dont's -- "Using Standard Exception Types"
+// MSDN: Do not throw/catch: (System.)"Exception", "SystemException"
+//       Do not throw/derive "ApplicationException"
+
+// (Incomplete)
+// Hierarchy
+Exception
+├─ApplicationException
+└─SystemException
+  ├─── ArithmeticException
+  │    └─ DivideByZeroException 
+  ├─── IOException
+  │    └─ FileNotFoundException
+  ├─── TimeoutException
+  ├───IndexOutOfRangeException
+  ├─── FormatException
+  ├─── AccessViolationException
+  ├─── ComException
+  ├─── ExternalException
+  ├─── InvalidOperationException  // object is in an inappropriate state
+  ├─── NullReferenceException
+  └─── ArgumentException          // Bad arguments passed to member
+       │ // for sub-types, set (or use overloads):
+       │ // '.ParamName = <nameOfParam>' AND '.value = <name of implicit value>'
+       ├─ ArgumentNullException       
+       └─ ArgumentOutOfRangeException
+
+// [cs]
+// ==============================
+// Function/Method Types
+// ==============================
+delegate // pointer to a method
+  func      // .. with input and return type 
+  action    // .. with no return type (void)
+  predicate // .. that evaluates and returns a bool
+
+// ==== Delegates - Signatures ====
+func      - delegate TResult Func<in T, out TResult>(T arg);
+predicate - delegate bool    Predicate<in T>(T obj);
+
+
+
+// ==========================================
+//              Statements
+// ==========================================
+
+// --------- Statements - Iteration ---------  
+// foreach
+//      uses .GetEnumerator() - Can be extension method
+//            └> .
+
+
+// ==========================================
+//              Operators
+// ==========================================
+[cs] 
+
+// ============= ASSIGNMENT =============
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/assignment-operator
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator
+
+// ----------- ref assignment
+//             = ref
+ref double arrayElement = ref arr[0]; 
+//  aliases left hand operand
+// left side must be: ref local, ref readonly local, "ref field" in "ref struct"
+
+// ----------- compound assignment
+//             op=
+x op= y // same as: x = x op y
+
+// ----------- null-coalescing assignment
+//             ??=
+a ??= 0 // if 'a' is null, a=0 ELSE a=a
+
+// ============= BINARY =============
+// TODO
+
+
+// ============= ARRAY / INDEX / RANGE =============
+
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/member-access-operators
+// ..          "All values"
+
+// EXAMPLES:
+//   oneThroughTen = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+// 
+//   [0..3]     ->  1, 2, 3                             Range
+//   [3..5]     ->  4, 5                                  
+//   [0..^0]    ->  1, 2, 3, 4, 5, 6, 7, 8, 9, 10       Range + IndexFromEnd               
+//   [2..^0]    ->  3, 4, 5, 6, 7, 8, 9, 10                                           
+//   [0..^3]    ->  1, 2, 3, 4, 5, 6, 7                  
+//   [3..^4]    ->  4, 5, 6                              
+//   [^2..^0]   ->  9, 10                               IndexFromEnd + Range + IndexFrom End
+//   [^4..^2]   ->  7, 8                                    
+
+// ----------- Index From End
+//             ^a            
+int[] subset = numbers[^a];
+
+
+// ----------- Range
+//             a..b   
+int[] subset = numbers[a..b];
+
+
+
+[/cs]
 // ===================
 //       Structures
 // ===================
@@ -236,10 +361,10 @@ protected       // class & derived
 private         // default, class ONLY
 // ------ Keywords - Method Parameter Modifiers ------
 this (for extension methods, in static method, prefix first argument type)
-in
-out
-params
-ref
+in      // pass reference - readonly, cannot be modified in method
+out     // pass reference - can be uninitialized (unlike ref)
+ref     // pass reference - must be initalized   (unlike out) 
+params  // arguments become an array - like python *args
 // ------ Keywords - Namespace Parameter Modifiers ------
 namespace
 using
@@ -305,8 +430,15 @@ Initiliaze in Class Fields in Constructor or Declaration?
 
 
 
-
-
+// ========================
+// Async
+// ========================
+// https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
+async
+await
+Task
+    .WhenAll
+    .WhenAny
 
 // =============
 // Contexts & Pre-Processor
@@ -363,6 +495,102 @@ Initiliaze in Class Fields in Constructor or Declaration?
 
 
 // ==================
+// Strings
+// ==================
+
+//    -------- Terminal --------
+// Escape Sequences
+// https://www.tutorialspoint.com/Ways-to-print-escape-characters-in-Chash
+// https://learn.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences
+
+\a  "bell"            \u0007 
+\b  "backspace"       \u0008 
+\t  "tab"             \u0009    
+\r  "carriage return" \u000D 
+
+\v  "vertical tab"    \u000B 
+\f  "form feed"       \u000C 
+\n  "newline"         \u000A 
+\e  "escape"          \u001B 
+
+\x  "hex"
+\u  "unicode"
+
+// xterm
+ESC 7   DECSC   DEC Save Cursor 
+ESC 8   DECRC   DEC Restore Cursor 
+
+
+
+// --------- Creation Methods
+
+
+// StringBuilder 
+
+// "When to use String vs. StringBuilder in .NET Core"  https://www.infoworld.com/article/3616600/when-to-use-string-vs-stringbuilder-in-net-core.html
+//   Benchmarks: String Concat VS StringBuilder
+//   Examples: StringBuilder allocations using a reusable pool 
+
+// https://learn.microsoft.com/en-us/dotnet/api/system.string.create?view=net-6.0
+// String.Create
+
+
+
+// =============================
+// Patterns
+// =============================
+
+
+// "Fluent Interface"    
+// OOP Object that relies heavily on "Method Chaining"      https://en.wikipedia.org/wiki/Fluent_interface
+
+// Method Chaining 
+// ----------------
+// -- Usage:
+yObj.AddItem(mItem).AddItem(mItem2).AddItem(mItem3);
+// -- Code:
+// https://stackoverflow.com/questions/1119799/method-chaining-in-c-sharp
+public MyCollection AddItem( MyItem item )
+{
+   // internal logic...
+
+   return this;
+}
+// ----------------
+// Alternatives (not method chaining):
+
+
+// ============= params =============
+// -- Usage:
+coll.AddItems( first, second, third );
+coll.AddItems( first, second, third, fourth, fifth );
+// -- Code:
+public void AddItems( params MyItem[] items )
+{
+    foreach( var item in items )
+        m_innerCollection.Add( item );
+}
+
+// ============= IEnumerable =============
+public void AddItems( IEnumerable<MyClass> items )
+{
+    foreach( var item in items )
+         m_innerCollection.Add( item );
+}
+// ============= Initializer Syntax =============
+var myColl = new MyCollection { first, second, third, ... };
+
+class XYZ : IEnumerable<SomeType>
+{
+    
+} 
+XYZ xyzClass = new XYZ() {
+    // ...
+} 
+
+
+
+// ==================
 // Runtime Hacks
 // ==================
 
@@ -407,3 +635,10 @@ public int this[int key]
 
 // Unsafe code, pointer types, and function pointers
 // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/unsafe-code
+
+
+
+// ======================
+// LINQ
+// ======================
+// TODO

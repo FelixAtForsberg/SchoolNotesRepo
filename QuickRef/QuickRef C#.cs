@@ -6,7 +6,11 @@
 ! 
 !<term>  unary prefix 
 
+// ==============
 // Types
+// ==============
+
+
 
 
 
@@ -29,12 +33,19 @@ else
     do this;
     
 // Ternary
-someVar= someFlag ? 'someVal1' : 'someVal2';
+someVar = someFlag ? 'someVal1' : 'someVal2';
 
+// ===========
+// Expressions & Statements
+// ===========
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
 
+// Lambda (Expression) 
+(input-parameters) => expression
 
-
-
+// Lambda (Statement)
+(input-parameters) => { <sequence-of-statements> }
+var squaredNumbers = numbers.Select(x => x * x);
 
 // ==========
 // Collection
@@ -121,9 +132,33 @@ public struct TextPos
 public readonly record struct TextPos(int Line, int Column);
 
 
+// ==============
+//  Exceptions  
+// ==============
+
+// throw
+throw new ArgumentException("You must supply an argument");
+throw new ArgumentException("Parameter cannot be null", nameof(original));
+// -----------  ArgumentException Constructors
+// ...(string msg, [string nameOfParam])     
+// ...(string msg, Exception subTypeException), 
+
 // ==========
 // Directives   
 // ==========
+
+// https://learn.microsoft.com/en-us/dotnet/csharp/misc/<insert_ID>
+// https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs
+
+// ------- Zen Development -------
+// "Non-nullable variable must contain a non-null value when exiting constructor. Consider declaring it as nullable."
+#pragma warning disable CS8618
+// "Never assigned a value"
+#pragma warning disable CS0649
+// "Private field never used"
+#pragma warning disable CS0414
+
+
 
 // ==========
 // Contexts   

@@ -1,18 +1,28 @@
 
 TERMINOLOGY:
+STAGE    // Track this file, add it to the index    -- git add 
+         // staged +17/3        - 
+COMMIT   // Save local changes                      -- git commit
+PATCH    // 
+
+// -- PLACES 
 ORIGIN   // Original Repo Git Cloned From
          // "git config --get remote.origin.url", "git remote show origin", "git remote -v"
 UPSTREAM //
 MASTER   // Default Branch of REPO
 HEAD     // Latest Commit, branch with your changes
 
+// -- VERBS
 REBASE  // Moving commits to a new base commit      compose of entirely new commits
 BASE COMMIT?
-
+// Merging vs Rebasing
+// https://www.atlassian.com/git/tutorials/merging-vs-rebasing
 
 DAG  // GIT History         ( Directed Acyclic Graph )
 
-STAGE // stage a commit, prepare it "finely" for committing
+
+// Patch - https://www.geeksforgeeks.org/using-patches-in-git/
+
 
 // https://gitready.com/beginner/2009/03/09/remote-tracking-branches.html
 // https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches
@@ -54,9 +64,24 @@ git stash apply
 FILE:
 git ls-files
 
+git diff 
+       --staged // Print all changes (by file) 
+    git 
+git status 
+           -v // --verbose
+
 git add <file>
+        -a 
+        -i // --interactive -> shows (filepath, bStaged)
+           //                  Commands: [S]tatus [U]pdate [R]evert [A]dd
+           //                            [P]atch  [D]iff   [Q]uit   [H]elp  
+
 git rm <file>
+
 git commit -m <message>
+           -a // --all      stages (tracks) all  
+           -p // --patch    interactive patch selection
+
 
 // posh git? Same as git? https://stackoverflow.com/questions/16722713/what-do-the-colors-in-the-github-for-windows-shell-mean
 // Cyan        remote

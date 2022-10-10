@@ -94,6 +94,12 @@ system        handler        manager  controller
 table         grid
 widget        control        element  component   renderable  ui    part
 
+
+// ============ UI Patterns I like ============
+// CMDER   - Shift-Click to Save but keep window open
+// Blender 
+//      - Hover + Ctrl + <Key> Modify while hovering     
+
 // ===================================================================================
 //                 Data Structures
 // ===================================================================================

@@ -1,0 +1,93 @@
+// https://en.wikipedia.org/wiki/Box-drawing_character
+
+Light:                  Heavy:                  Light Dashed:
+Root                    Root                    Root        
+├───Folder              ┣━━━Folder              ├╌╌╌Folder       
+│   ├───Folder          ┃   ┣━━━Folder          ┆   ├╌╌╌Folder   
+│   └───Folder          ┃   ┗━━━Folder          ┆   └╌╌╌Folder     
+└─Folder                ┗━Folder                └╌Folder
+
+Curved:                 Double:                 Mixed:
+Root                    Root                    Root             
+├───Folder              ╠═══Folder              ┠╾╾╾Folder            
+│   ├───Folder          ║   ╠═══Folder          ╽   ┟╾╾╾Folder        
+│   ╰───Folder          ║   ╚═══Folder          ╽   └╾╾╾Folder                
+╰─Folder                ╚═Folder                ┕╾Folder              
+
+Alternative Heavy Dash:
+Root        
+╹╸╸╸Folder       
+╹   ╹╸╸╸Folder_B   
+╹   ╹╸╸╸Folder_C   
+╹                  
+╹╸╸╸Folder_D
+
+┌─┬─┐ ┏━┳━┓ ╔═╦═╗ ╓─╥─╖ ╒═╤═╕  
+│ │ │ ┃ ┃ ┃ ║ ║ ║ ║ ║ ║ │ │ │  
+├─┼─┤ ┣━╋━┫ ╠═╬═╣ ╟─╫─╢ ╞═╪═╡  
+└─┴─┘ ┗━┻━┛ ╚═╩═╝ ╙─╨─╜ ╘═╧═╛
+┏━┯━┓ ┌─┰─┐
+┃ │ ┃ │ ┃ │
+┠─┼─┨ ┝━╋━┥
+┗━┷━┛ └─┸─┘
+
+
+┌─────────┐┌─╴Panel╶─┐┌───┬───┬─────┐
+│         ││         ││   │ A │ B C │
+│   Box   ││         ││   ├───┼─────┴───┐ ┤
+│         ││         ││   │ D │ E F G H │
+└─────────┘└─────────┘└───┴───┴─────────┘
+╭─────────╮╭─╴Panel╶─╮╭───┬───┬─────╮
+│         ││         ││   │ A │ B C │
+│   Box   ││         ││   ├───┼─────┴───╮ 
+│         ││         ││   │ D │ E F G H │
+╰─────────╯╰─────────╯╰───┴───┴─────────╯
+           ┌╶╴╶╴╶╴┐
+           ╷      ╷        
+           ╵      ╵        
+           └╶╶╶╴╴╴┘git
+
+Branches:
+
+branch     ●──●───────╮
+                      │
+master ●━●━━●━━━━━┯━●━┷━●━━━
+                  │
+branch  ●───●───●─╯
+
+
+Arrows:
+←
+→
+↑ ⬆
+↓ ⬇
+↕ ⬍ 
+↔ 
+↱ ↰
+↳ ↲  ⮡ ⮠
+
+Arrow Head:
+< ‹
+> › ‣
+ˆ 
+˅ ᵛ V ˯ ˬᵥ
+
+
+Pattern:
+╳╳╳╳╳╳╳╳  ╱╲╱╲╱╲╱╲  ╲╱╲╱╲╱╲╱  ╲╲╲╲╲╲╲╲  ╱╱╱╱╱╱╱╱ 
+╳╳╳╳╳╳╳╳  ╲╱╲╱╲╱╲╱  ╱╲╱╲╱╲╱╲  ╱╱╱╱╱╱╱╱  ╲╲╲╲╲╲╲╲ 
+╳╳╳╳╳╳╳╳  ╱╲╱╲╱╲╱╲  ╲╱╲╱╲╱╲╱  ╲╲╲╲╲╲╲╲  ╱╱╱╱╱╱╱╱ 
+╳╳╳╳╳╳╳╳  ╲╱╲╱╲╱╲╱  ╱╲╱╲╱╲╱╲  ╱╱╱╱╱╱╱╱  ╲╲╲╲╲╲╲╲ 
+
+Shape:
+  Circle:
+    • ‧ ․ ‥ …
+
+─
+╳
+  ╲╱╭ Text ╮  
+  ╱╲╰ A ╯  
+╳
+
+ ◜ ◝ ◞ ◟
+◠ ◡ 
