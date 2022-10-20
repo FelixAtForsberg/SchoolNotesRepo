@@ -1,0 +1,72 @@
+// https://www.daskeyboard.com/blog/discord-slack-github-shortcuts/
+// https://support.discord.com/hc/en-us/articles/225977308--Windows-Discord-Hotkeys
+
+
+
+// ====================================
+// Discord
+// ====================================
+
+
+
+// By Action
+
+Find:
+    C-F - "Find Message"
+    C-K - "Find Servers, Channels, DMs"
+
+Show:
+    C-P - Display "Pins"
+    Chat:
+        C-E - Display "Emoji Picker"
+        C-G - Display "GIF Picker"
+    Server:
+        Toggle Display "Members"
+        
+Switch:
+    Server:
+        C-A-<arrow up/dn> Focus "Prev/Next Server"
+    Text Channel:
+        C-B
+    Audio Channel:
+        C-A-A
+
+
+// By Context
+
+Messages:
+    C-F :       "Find"
+    ESC :       Mark as "All Read"
+    S-PgUp      Scroll to "Oldest Unread"
+    
+
+
+// ---- Search Syntax ----
+// https://support.discord.com/hc/en-us/articles/115000468588
+ 
+in: <channel>
+
+from: <user>
+
+has: link|embed|file|video|image|sound
+
+// YYYY-MM-DD  
+// date examples: 2015-08-20
+before: <date>
+after:  <date>
+during: <date>
+
+// Search - Better Discord?
+pinned:
+mentions:
+
+// ====================================
+// Better Discord
+// ====================================
+
+// ====================================
+// Better Discord Plugins
+// ====================================
+
+// MultiInstance
+C-F12 New Instance (Multiple Instances)

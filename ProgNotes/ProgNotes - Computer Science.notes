@@ -21,6 +21,49 @@ CIRCUMFIX       [CIRCUMFIX]<Stem>[CIRCUMFIX]
 INFIX           <St>-[INFIX]-<em>
 TRANSFIX        <St>[TRANSFIX]<e>[TRANSFIX]<m>
 
+
+// -------
+//     Language (Syntax)
+// -----------------------------------------
+// https://www.slideserve.com/etta/syntax-and-semantics
+// Syntax, Grammar, Parse Tree, ...
+
+// index - https://www.cs.utexas.edu/users/novak/cs375vocab.html 
+
+Syntax  // form or structure of language
+        //   while(<expr>) <stmt>
+
+Token // 
+
+Lexeme // 
+
+
+// https://en.wikipedia.org/wiki/Semantics_(computer_science)
+// https://www.usna.edu/Users/cs/wcbrown/courses/F19SI413/lec/l07/lec.html
+Semantics // Computational meaning of (valid) syntax
+          // how source code is executed 
+  Axiomatic Semantics
+  Denotational Semantics // 
+  Operational Semantics
+  
+  // "Semantically the same" - it works the same?
+  
+// -------
+//     Compilation, Interpreting & Building
+// -----------------------------------------
+
+interpreter // executes language statements at runtime
+compiler    // translates (source-code) language to bytecode/another language
+linker      // object files -> one executable 
+
+linter       // static code analysis , 
+
+parser //
+
+target //
+
+// lexical analysis?
+
 // -------
 //     Verbs
 // -----------------------------------------
@@ -156,4 +199,52 @@ contrib/
 
 
 
+File Systems and Paths:
+// Paths
+// https://docs.microsoft.com/en-us/dotnet/standard/io/file-path-formats
+
+// 
+
+// Absolute Path
+//    ▼───────▼ ▼─────────▼ ▼────────────▼ Components    
+   C:\Documents\Newsletters\Summer2018.pdf
+// ▲ Volume    ▲ Separator ▲
+
+// absolute path from the root of the current drive
+\Program Files\Custom Utilities\StringFinder.exe
+
+// relative subdir
+2018\January.xlsx
+
+// relative peer / parent
+..\Publications\TravelBrochure.pdf
+
+--- WINDOWS ---
+// Conventions
+// https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file#naming-conventions
+// < > : " / \ | ? *       <- Reserved Symbols
+
+// DOS device paths
+// https://docs.microsoft.com/en-us/dotnet/standard/io/file-path-formats#dos-device-paths
+\\.\C:\Test\Foo.txt
+\\.\Volume{b75e2c83-0000-0000-0000-602f00000000}\Test\Foo.txt
+\\?\C:\Test\Foo.txt
+\\?\Volume{b75e2c83-0000-0000-0000-602f00000000}\Test\Foo.txt
+
+
+
+Aggregation VS composition:
+// https://softwareengineering.stackexchange.com/questions/61376/aggregation-vs-composition
+// https://www.infoworld.com/article/3029325/exploring-association-aggregation-and-composition-in-oop.html
+TODO
+
+Encapsulation:
+// https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)
+encapsulation refers to the bundling of data with the methods that operate on that data, or the restricting of direct access to some of an object's components
+
+
+
+screenshot:
+// screengrab screencap printscreen - is there a difference?
+// bitmap pixelbuffer
 

@@ -1,0 +1,40 @@
+// ================================================================================================================================================
+// Principles:
+// Liskov substitution principle
+// Violation of the Open-Closed Principle
+
+// ================================================================================================================================================
+// Patterns:
+// Curiously_recurring_template_pattern - https://en.wikipedia.org/wiki/Curiously_recurring_template_pattern
+// The curiously recurring template pattern (CRTP) is an idiom, originally in C++, in which a class X derives from a class template instantiation using X itself as a template argument.[1] More generally it is known as F-bound polymorphism, and it is a form of F-bounded quantification. 
+
+// ================================================================================================================================================
+// Outbound Type
+// https://stackoverflow.com/questions/6607033/c-sharp-language-generics-open-closed-bound-unbound-constructed
+
+// There are several definitions that are a bit twisting:
+// unbound generic type: A generic type declaration, by itself, denotes an unbound generic type ...
+// constructed type: A type that includes at least one type argument is called a constructed type.
+// open type: An open type is a type that involves type parameters.
+// closed type: A closed type is a type that is not an open type.
+// unbound type: refers to a nongeneric type or an unbound generic type.
+// bound type: refers to a nongeneric type or a constructed type. [annotate] ERIC LIPPERT: Yes, nongeneric types are considered to be both bound and unbound.
+
+// These are examples of unbound generic types:
+    List<>
+    Dictionary<,>
+
+// They can be used with typeof, i.e., the following are valid expressions:
+
+    typeof(List<>)
+    typeof(Dictionary<,>)
+
+// That should answer your question 2. 
+public class MyClass<T, U> {  // declares the type parameters T and U
+
+    // all of these are
+    // - generic,
+    // - constructed (since two type arguments are supplied), and
+    // - bound (since they are constructed):
+
+    private Dic

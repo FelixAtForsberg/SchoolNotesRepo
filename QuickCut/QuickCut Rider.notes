@@ -1,3 +1,30 @@
+# ===================================================================================================
+#        Window
+# ===================================================================================================
+A-0: Commit
+A-1: Explorer
+A-2: Bookmarks
+A-3: Find
+A-4: Run
+A-5: Debug
+A-6: Problems 
+A-7: Structure
+A-8: Services
+A-9: Git
+
+// A-S-7: NuGet     A-F12: Terminal     A-S-8: Unit Tests 
+
+# ===================================================================================================
+#        Refactoring
+# ===================================================================================================
+
+
+ Move to Another Type   // https://www.jetbrains.com/help/rider/Refactorings__Move__Type_to_Another_Type.html
+
+// Caret Pos:   Text: Name of Nested Type || Solution Explorer || Structure Window
+// Invoke:
+    Keys:  C-R, O    C-S-R
+    
 
 # =========================
 #       Generate

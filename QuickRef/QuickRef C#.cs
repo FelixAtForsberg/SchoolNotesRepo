@@ -3,19 +3,20 @@
 // ==========
 
 // unary postfix
-! 
-!<term>  unary prefix 
+!
+!<term>  unary prefix
 
 // ==============
 // Types
 // ==============
 
-
+// String repeat char
+string txt = new string("string", n)
 
 
 
 // Valid Char Assignments
-// 
+//
 var chars = new[]
 {
     'j',        // character literal
@@ -31,7 +32,7 @@ if(statement)
     do this;
 else
     do this;
-    
+
 // Ternary
 someVar = someFlag ? 'someVal1' : 'someVal2';
 
@@ -40,7 +41,9 @@ someVar = someFlag ? 'someVal1' : 'someVal2';
 // ===========
 // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
 
-// Lambda (Expression) 
+// <name> = () =>
+
+// Lambda (Expression)
 (input-parameters) => expression
 
 // Lambda (Statement)
@@ -84,6 +87,20 @@ string[][] gridJagged = new String[][]
 // Structures
 // ==========
 
+
+// class
+
+class ClassName
+{
+    public int X { get; set; } = x;     // field + initialize + getter + setter
+}
+
+
+
+
+
+
+
 // struct
 
 // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/structs
@@ -93,7 +110,7 @@ struct Point
 {
     public int x, y;
 
-    public Point(int x, int y) 
+    public Point(int x, int y)
     {
         this.x = x;
         this.y = y;
@@ -112,8 +129,12 @@ record struct Person()
 }
 
 
-
 readonly record struct ColorPair(ConsoleColor? Foreground, ConsoleColor? Background);
+
+// interface
+
+
+
 
 // ---------
 public struct TextPos
@@ -133,18 +154,24 @@ public readonly record struct TextPos(int Line, int Column);
 
 
 // ==============
-//  Exceptions  
+//  Abstraction & Composition
+// ==============
+
+
+
+// ==============
+//  Exceptions
 // ==============
 
 // throw
 throw new ArgumentException("You must supply an argument");
 throw new ArgumentException("Parameter cannot be null", nameof(original));
 // -----------  ArgumentException Constructors
-// ...(string msg, [string nameOfParam])     
-// ...(string msg, Exception subTypeException), 
+// ...(string msg, [string nameOfParam])
+// ...(string msg, Exception subTypeException),
 
 // ==========
-// Directives   
+// Directives
 // ==========
 
 // https://learn.microsoft.com/en-us/dotnet/csharp/misc/<insert_ID>
@@ -158,13 +185,40 @@ throw new ArgumentException("Parameter cannot be null", nameof(original));
 // "Private field never used"
 #pragma warning disable CS0414
 
+// ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable CollectionNeverUpdated.Global
+
 
 
 // ==========
-// Contexts   
+// Contexts
 // ==========
 
 // nullable https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-contexts
 // #nullable [disable|enable|restore] [annotations|warnings]
 #nullable enable
 #nullable enable warnings
+
+
+// ==========
+// Generics
+// =======================================================================================================================================
+// Constraints on type parameters (C# Programming Guide)
+// https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters
+// =======================================================================================================================================
+// where T : <symbol>? =
+// Constraint
+where T : <base class name>
+where T : <base class name>?
+where T : <interface name>
+where T : <interface name>?
+where T : class
+where T : class?
+
+where T : default
+where T : new()
+where T : notnull
+where T : struct
+where T : U
+
+where T : unmanaged

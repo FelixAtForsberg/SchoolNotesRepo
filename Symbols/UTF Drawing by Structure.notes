@@ -2,14 +2,14 @@
 
 Light:                  Heavy:                  Light Dashed:
 Root                    Root                    Root        
-├───Folder              ┣━━━Folder              ├╌╌╌Folder       
-│   ├───Folder          ┃   ┣━━━Folder          ┆   ├╌╌╌Folder   
-│   └───Folder          ┃   ┗━━━Folder          ┆   └╌╌╌Folder     
+├──╴Folder              ┣━━━Folder              ├╌╌╌Folder       
+│   ├──╴Folder          ┃   ┣━━━Folder          ┆   ├╌╌╌Folder   
+│   └──╴Folder          ┃   ┗━━━Folder          ┆   └╌╌╌Folder     
 └─Folder                ┗━Folder                └╌Folder
 
 Curved:                 Double:                 Mixed:
 Root                    Root                    Root             
-├───Folder              ╠═══Folder              ┠╾╾╾Folder            
+├──╴Folder              ╠═══Folder              ┠╾╾╾Folder            
 │   ├───Folder          ║   ╠═══Folder          ╽   ┟╾╾╾Folder        
 │   ╰───Folder          ║   ╚═══Folder          ╽   └╾╾╾Folder                
 ╰─Folder                ╚═Folder                ┕╾Folder              
